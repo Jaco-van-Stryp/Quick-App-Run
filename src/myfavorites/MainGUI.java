@@ -5,6 +5,7 @@ import java.awt.Desktop;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.PrintWriter;
+import java.net.URI;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
 
@@ -258,7 +259,7 @@ boolean editing = false;
     private void btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1ActionPerformed
         if (editing == true) {
             setupButton(1);
-            btnMode.setText("Active Mode");
+            btnMode.setText("Toggle Mode [Active]");
         } else {
             runButton(1);
         }
@@ -268,7 +269,7 @@ boolean editing = false;
     private void btn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn2ActionPerformed
         if (editing == true) {
             setupButton(2);
-            btnMode.setText("Active Mode");
+            btnMode.setText("Toggle Mode [Active]");
         } else {
             runButton(2);
         }
@@ -277,16 +278,16 @@ boolean editing = false;
     private void btn3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn3ActionPerformed
         if (editing == true) {
             setupButton(3);
-            btnMode.setText("Active Mode");
+            btnMode.setText("Toggle Mode [Active]");
         } else {
-            runButton(1);
+            runButton(3);
         }
     }//GEN-LAST:event_btn3ActionPerformed
 
     private void btn4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn4ActionPerformed
         if (editing == true) {
             setupButton(4);
-            btnMode.setText("Active Mode");
+            btnMode.setText("Toggle Mode [Active]");
         } else {
             runButton(4);
         }
@@ -295,7 +296,7 @@ boolean editing = false;
     private void btn5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn5ActionPerformed
         if (editing == true) {
             setupButton(5);
-            btnMode.setText("Active Mode");
+            btnMode.setText("Toggle Mode [Active]");
         } else {
             runButton(5);
         }
@@ -305,7 +306,7 @@ boolean editing = false;
     private void btn6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn6ActionPerformed
         if (editing == true) {
             setupButton(6);
-            btnMode.setText("Active Mode");
+            btnMode.setText("Toggle Mode [Active]");
         } else {
             runButton(6);
         }
@@ -314,7 +315,7 @@ boolean editing = false;
     private void btn7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn7ActionPerformed
         if (editing == true) {
             setupButton(7);
-            btnMode.setText("Active Mode");
+            btnMode.setText("Toggle Mode [Active]");
         } else {
             runButton(7);
         }
@@ -324,7 +325,7 @@ boolean editing = false;
     private void btn8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn8ActionPerformed
         if (editing == true) {
             setupButton(8);
-            btnMode.setText("Active Mode");
+            btnMode.setText("Toggle Mode [Active]");
         } else {
             runButton(8);
         }
@@ -333,7 +334,7 @@ boolean editing = false;
     private void btn9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn9ActionPerformed
         if (editing == true) {
             setupButton(9);
-            btnMode.setText("Active Mode");
+            btnMode.setText("Toggle Mode [Active]");
         } else {
             runButton(9);
         }
@@ -407,7 +408,16 @@ boolean editing = false;
         try {
             Scanner scFile = new Scanner(new File("" + btnVal + ".txt"));
             String url = scFile.nextLine();
-            Desktop.getDesktop().open(new File(url));
+            System.out.println("Attempting to open: " + url);
+            System.out.println(url.substring(0, 3));
+            if (url.substring(0, 3).equalsIgnoreCase("www") || url.substring(0, 4).equalsIgnoreCase("http")) {
+                Desktop desktop = java.awt.Desktop.getDesktop();
+                URI oURL = new URI(url);
+                desktop.browse(oURL);
+            } else {
+                Desktop.getDesktop().open(new File(url));
+            }
+
             scFile.close();
         } catch (Exception e) {
             setupButton(btnVal);
@@ -421,6 +431,7 @@ boolean editing = false;
             String input = JOptionPane.showInputDialog("Enter the location of the file linked to this button");
             printer.print(input);
             printer.close();
+            System.out.println("Printing " + input + " to " + "" + btnVal + ".txt");
             loadNames(btnVal);
         } catch (Exception e) {
             e.printStackTrace();
@@ -432,7 +443,7 @@ boolean editing = false;
             editing = false;
 
             try {
-                String input = JOptionPane.showInputDialog("Enter the name for button #" + curName);
+                String input = JOptionPane.showInputDialog("What is the name of this file?");
                 PrintWriter printer = new PrintWriter(new FileWriter(curName + "-N.txt", false));
                 printer.println(input);
                 printer.close();
