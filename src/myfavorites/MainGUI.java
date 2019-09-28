@@ -58,97 +58,97 @@ public class MainGUI extends javax.swing.JFrame {
         btnMode.setBackground(new java.awt.Color(255, 51, 51));
         btnMode.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btnMode.setForeground(new java.awt.Color(255, 255, 255));
-        btnMode.setText("Active Mode");
+        btnMode.setText("Toggle Mode [Active]");
         btnMode.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnModeActionPerformed(evt);
             }
         });
 
-        btn3.setBackground(new java.awt.Color(0, 204, 204));
+        btn3.setBackground(new java.awt.Color(255, 0, 51));
         btn3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btn3.setForeground(new java.awt.Color(255, 255, 255));
-        btn3.setText("3");
+        btn3.setText("Click To Set");
         btn3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn3ActionPerformed(evt);
             }
         });
 
-        btn1.setBackground(new java.awt.Color(0, 204, 204));
+        btn1.setBackground(new java.awt.Color(255, 0, 51));
         btn1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btn1.setForeground(new java.awt.Color(255, 255, 255));
-        btn1.setText("1");
+        btn1.setText("Click To Set");
         btn1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn1ActionPerformed(evt);
             }
         });
 
-        btn2.setBackground(new java.awt.Color(0, 204, 204));
+        btn2.setBackground(new java.awt.Color(255, 0, 51));
         btn2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btn2.setForeground(new java.awt.Color(255, 255, 255));
-        btn2.setText("2");
+        btn2.setText("Click To Set");
         btn2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn2ActionPerformed(evt);
             }
         });
 
-        btn6.setBackground(new java.awt.Color(0, 204, 204));
+        btn6.setBackground(new java.awt.Color(255, 0, 51));
         btn6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btn6.setForeground(new java.awt.Color(255, 255, 255));
-        btn6.setText("6");
+        btn6.setText("Click To Set");
         btn6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn6ActionPerformed(evt);
             }
         });
 
-        btn5.setBackground(new java.awt.Color(0, 204, 204));
+        btn5.setBackground(new java.awt.Color(255, 0, 51));
         btn5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btn5.setForeground(new java.awt.Color(255, 255, 255));
-        btn5.setText("5");
+        btn5.setText("Click To Set");
         btn5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn5ActionPerformed(evt);
             }
         });
 
-        btn4.setBackground(new java.awt.Color(0, 204, 204));
+        btn4.setBackground(new java.awt.Color(255, 0, 51));
         btn4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btn4.setForeground(new java.awt.Color(255, 255, 255));
-        btn4.setText("4");
+        btn4.setText("Click To Set");
         btn4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn4ActionPerformed(evt);
             }
         });
 
-        btn9.setBackground(new java.awt.Color(0, 204, 204));
+        btn9.setBackground(new java.awt.Color(255, 0, 51));
         btn9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btn9.setForeground(new java.awt.Color(255, 255, 255));
-        btn9.setText("9");
+        btn9.setText("Click To Set");
         btn9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn9ActionPerformed(evt);
             }
         });
 
-        btn8.setBackground(new java.awt.Color(0, 204, 204));
+        btn8.setBackground(new java.awt.Color(255, 0, 51));
         btn8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btn8.setForeground(new java.awt.Color(255, 255, 255));
-        btn8.setText("8");
+        btn8.setText("Click To Set");
         btn8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn8ActionPerformed(evt);
             }
         });
 
-        btn7.setBackground(new java.awt.Color(0, 204, 204));
+        btn7.setBackground(new java.awt.Color(255, 0, 51));
         btn7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btn7.setForeground(new java.awt.Color(255, 255, 255));
-        btn7.setText("7");
+        btn7.setText("Click To Set");
         btn7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn7ActionPerformed(evt);
@@ -347,7 +347,7 @@ boolean editing = false;
     private void btnModeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModeActionPerformed
         if (editing == false) {
             editing = true;
-            btnMode.setText("Editing Mode");
+            btnMode.setText("Toggle Mode [Editing]");
             btn1.setVisible(true);
             btn2.setVisible(true);
             btn3.setVisible(true);
@@ -359,7 +359,7 @@ boolean editing = false;
             btn9.setVisible(true);
         } else {
             editing = false;
-            btnMode.setText("Active Mode");
+            btnMode.setText("Toggle Mode [Active]");
             for (int i = 1; i < 10; i++) {
                 loadNamesSmart(i);
             }
