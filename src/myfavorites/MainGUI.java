@@ -350,15 +350,13 @@ public class MainGUI extends javax.swing.JFrame {
             String input = JOptionPane.showInputDialog("Enter the location of the file linked to this button");
             printer.print(input);
             printer.close();
-            loadNames();
+            loadNames(btnVal);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public void loadNames() {
-        int curName = 1;
-        for (int i = 0; i < 9; i++) {
+    public void loadNames(int curName) {
             try {
                 Scanner scFile = new Scanner(new File(curName + "-N.txt"));
                 String scLine = scFile.nextLine();
@@ -394,7 +392,6 @@ public class MainGUI extends javax.swing.JFrame {
                     default:
                     // code block
                 }
-                curName++;
             } catch (Exception e) {
                 e.printStackTrace();
                 try {
@@ -402,11 +399,10 @@ public class MainGUI extends javax.swing.JFrame {
                     PrintWriter printer = new PrintWriter(new FileWriter(curName + "-N.txt", false));
                     printer.println(input);
                     printer.close();
-                    curName++;
+                    loadNames(curName);
                 } catch (Exception d) {
                     d.printStackTrace();
                 }
-            }
         }
     }
 
